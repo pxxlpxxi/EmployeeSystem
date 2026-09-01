@@ -105,7 +105,7 @@ namespace EmployeeSystem.Helpers
         /// Prints an overview of the monthly salaries of all employees in the <see cref="Init.Employees"/> list, 
         /// including their individual descriptions and the total salary.
         /// </summary>
-        internal static void PrintMonthlySalaryOverwiew()
+        internal static void PrintMonthlySalaryOverview()
         {
             decimal totalSalary = 0;
 

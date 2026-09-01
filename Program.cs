@@ -8,7 +8,7 @@ namespace EmployeeSystem
         {
             Init.CreateEmployees();
 
-            Output.PrintMonthlySalaryOverwiew();
+            Output.PrintMonthlySalaryOverview();
             
             Console.ReadKey();
         }
