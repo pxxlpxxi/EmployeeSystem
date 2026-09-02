@@ -150,3 +150,15 @@ Hvis objektet er en **HourlyEmployee**, bliver det gemt i variablen `hE`, og `Ho
 Hvis objektet er en **SalariedEmployee**, bliver det gemt i variablen `sE`, og `SalariedEmployee.CalculateSalary()` bliver kaldt.
 
 På den måde kan lønnen stadig beregnes korrekt for hver medarbejder uden virtual, override og polymorfi, men koden skal selv håndtere, hvilken type objekt der arbejdes med, og bliver derfor mere komplekst og mindre fleksibel. Med virtual og override sker det automatisk gennem polymorfi.
+
+## Overload
+
+### 1. Hvornår afgøres det, hvilken overload metode der skal kaldes?
+Overload af metoder er, når man har flere metoder med samme navn, men forskellige parametre. Compileren afgør, hvilken metode der skal kaldes, 
+baseret på antallet og typen af argumenter, der sendes til metoden. Det er forskelligt fra polymorfi, hvor den metode, der kaldes, afgøres af objektets runtime-type,
+hvor det i overload afgøres af compile-time typen, og kaldes _compile-time overload resolution_.
+
+### 2. Kunne det løses med override i stedet for overload?
+Nej, ikke umiddelbart på en hensigtsmæssig måde. Override kræver, at metoden findes i base-klassen **Employee**, men bonus er kun relevant for **SalariedEmployee** og ikke for **HourlyEmployee**.
+Hvis man lægger `CalculateBonus` i **Employee** for at kunne override den i **SalariedEmployee**, ville **HourlyEmployee** også arve metoden, selvom en hourly employee ikke har en bonus. 
+Teknisk set kan man sagtens lave overloads af override-metoder - de to koncepter udelukker ikke hinanden, og kan godt kombineres, men overloads af metoden i SalariedEmployee ville være almindelige metoder og ikke polymorfe, da de ikke findes i base-klassen. De ville derfor heller ikke kunne bruge base.CalculateBonus() på samme måde som en override kan.
