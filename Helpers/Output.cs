@@ -50,6 +50,12 @@ namespace EmployeeSystem.Helpers
             return ($"{GetLabelText(label)}" +
                 $"{value}".PadLeft(PadWidth - GetLabelLength(label)));
         }
+
+        internal static string FormatText(string text, string value)
+        {
+            return ($"{text}" +
+                $"{value}".PadLeft(PadWidth - text.Length));
+        }
         /// <summary>
         /// Gets the text representation of a label based on the provided enumeration value.
         /// </summary>

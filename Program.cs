@@ -9,7 +9,21 @@ namespace EmployeeSystem
             Init.CreateEmployees();
 
             Output.PrintMonthlySalaryOverview();
-            
+
+
+
+            var salaryCalculator = new SalaryCalculator();
+
+
+            Output.PrintPadHeadline("CalculateBonus();");
+
+            Console.WriteLine(Output.FormatText(Label.Bonus, $"{salaryCalculator.CalculateBonus(10000):F2}"));
+
+            Console.WriteLine(Output.FormatText(Label.Bonus, $"{salaryCalculator.CalculateBonus(10000, 10):F2}"));
+
+            Console.WriteLine(Output.FormatText(Label.Bonus, $"{salaryCalculator.CalculateBonus(10000, 10, 5):F2}"));
+
+            Output.PrintPadLine();
             Console.ReadKey();
         }
     }
